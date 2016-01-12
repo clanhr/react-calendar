@@ -1,0 +1,22 @@
+{
+  "name": "react-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clanhr/react-calendar.git"
+  },
+  "author": "clanhr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clanhr/react-calendar/issues"
+  },
+  "homepage": "https://github.com/clanhr/react-calendar",
+  "dependencies": {
+    "mocha": "^2.3.4"
+  }
+}
