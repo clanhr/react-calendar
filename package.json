@@ -17,6 +17,21 @@
   },
   "homepage": "https://github.com/clanhr/react-calendar",
   "dependencies": {
-    "mocha": "^2.3.4"
+    "underscore": "*",
+    "react": "0.14.1",
+    "react-dom": "0.14.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "browserify": "12.0.1",
+    "http-server": "0.7.4",
+    "reactify": "1.1.1",
+    "uglify-js": "2.5.0",
+    "watchify": "3.5.0"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
   }
 }
