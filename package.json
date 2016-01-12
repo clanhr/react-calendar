@@ -18,6 +18,7 @@
   "homepage": "https://github.com/clanhr/react-calendar",
   "dependencies": {
     "underscore": "*",
+    "moment": "*",
     "react": "0.14.1",
     "react-dom": "0.14.1"
   },
