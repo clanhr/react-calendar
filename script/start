@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+npm install
+
+LOG_FILE=~/common.log
+
+rm -rf $LOG_FILE
+touch $LOG_FILE
+
+killall -w -r node || true
+script/watch-js 2>&1 >> $LOG_FILE &
+script/server 2>&1 >> $LOG_FILE &
+
+tail -f -n 500 ~/common.log
