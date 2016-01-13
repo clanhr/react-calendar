@@ -1,8 +1,8 @@
 {
-  "name": "react-calendar",
+  "name": "clanhr-react-calendar",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simple react calendar",
+  "main": "src/main.js",
   "scripts": {
     "test": "mocha test/*.js"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/clanhr/react-calendar.git"
   },
-  "author": "clanhr",
+  "author": "clanhr.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/clanhr/react-calendar/issues"
