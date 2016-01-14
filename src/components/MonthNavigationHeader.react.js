@@ -13,9 +13,9 @@ module.exports = React.createClass({
     return (
       <div className="monthName">
         <p className="smallTitle text-center">
-          <a href="#" onClick={this.props.onPreviousMonth}><i className="icon-left-open"></i></a>
+          <a onClick={this.props.onPreviousMonth}><i className="icon-left-open"></i></a>
           {month} {this.props.year}
-          <a href="#" onClick={this.props.onNextMonth}><i className="icon-right-open"></i></a></p>
+          <a onClick={this.props.onNextMonth}><i className="icon-right-open"></i></a></p>
       </div>
     );
   }
