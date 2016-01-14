@@ -55,7 +55,8 @@ var rawData = {
          "2" : {size: 1, label: "Liliana Veríssimo", type: "vacations", status: "enjoyed"}},
         {"0" : {size: 5, label: "Marcos Lamúria", type: "vacations", status: "enjoyed"}},
         {"1" : {size: 4, viewer: true, label: "Eu", type: "vacations", status: "pendent"}},
-        {"2" : {size: 1, label: "+1", type: "summay", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"}]}}
+        {"2" : {size: 1, label: "+1", type: "summay", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"},
+                                                               {label: "Pedro Aníbal", type: "vacations", status: "enjoyed", detail: "(13/01/2015 a 18/01/2015)"}]}}
       ]
     },
     {
