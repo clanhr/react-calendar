@@ -19,7 +19,7 @@ var rawData = {
       eventRows: [
         {"1" : {eventId: "1", size: 3, label: "Pedro Santos", type: "vacations", status: "enjoyed"},
          "4" : {eventId: "2", size: 3, label: "Bruna Nezello", type: "family", status: "enjoyed"}},
-        {"0" : {eventId: "2", size: 2, label: "Bruna Nezello", type: "family", status: "enjoyed"}},
+        {},
         {},
         {}
       ]
@@ -34,12 +34,10 @@ var rawData = {
              moment("2016-01-10")],
 
       eventRows: [
-        {"0" : {size: 1, label: "Pedro Nogueira", type: "specialDay", category: "birthday"},
-         "1" : {size: 1, label: "Feriado", type: "specialDay", category: "holiday"},
-         "2" : {size: 1, label: "Liliana Veríssimo", type: "vacations", status: "enjoyed"}},
-        {"0" : {size: 5, label: "Marcos Lamúria", type: "vacations", status: "enjoyed"}},
-        {"1" : {size: 4, viewer: true, label: "Eu", type: "vacations", status: "pendent"}},
-        {"2" : {size: 1, label: "+1", type: "summay", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"}]}}
+        {"0" : {eventId: "2", size: 2, label: "Bruna Nezello", type: "family", status: "enjoyed"}},
+        {},
+        {},
+        {}
       ]
     },
     {
@@ -52,10 +50,12 @@ var rawData = {
              moment("2016-01-17")],
 
       eventRows: [
-        {},
-        {},
-        {},
-        {},
+        {"0" : {size: 1, label: "Pedro Nogueira", type: "specialDay", category: "birthday"},
+         "1" : {size: 1, label: "Feriado", type: "specialDay", category: "holiday"},
+         "2" : {size: 1, label: "Liliana Veríssimo", type: "vacations", status: "enjoyed"}},
+        {"0" : {size: 5, label: "Marcos Lamúria", type: "vacations", status: "enjoyed"}},
+        {"1" : {size: 4, viewer: true, label: "Eu", type: "vacations", status: "pendent"}},
+        {"2" : {size: 1, label: "+1", type: "summay", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"}]}}
       ]
     },
     {
