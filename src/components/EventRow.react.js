@@ -18,6 +18,31 @@ function getEventComponent(data) {
   return <Event data={data} />;
 }
 
+function onEventEnter(calendar, data) {
+  return function() {
+    calendar.setState({overEvent:data});
+  };
+}
+
+function onEventLeave(calendar, data) {
+  return function() {
+    calendar.setState({overEvent:null});
+  };
+}
+
+function hightlightEvent(overedEvent, currentEvent) {
+  if(!overedEvent) {
+    return false;
+  }
+  if(overedEvent === currentEvent) {
+    return true;
+  }
+  if(overedEvent.eventId) {
+    return overedEvent.eventId === currentEvent.eventId;
+  }
+  return false;
+}
+
 module.exports = React.createClass({
   render: function render() {
     var days = this.props.data.days;
@@ -36,8 +61,14 @@ module.exports = React.createClass({
         if(weekendClassName) {
           className += " " + weekendClassName;
         }
+        if(hightlightEvent(this.props.calendar.overEvent(), posData)) {
+          className += " highlight";
+        }
         components.push(
-          <td key={i} colSpan={posData.size} className={className}>
+          <td key={i} colSpan={posData.size}
+              onMouseEnter={onEventEnter(this.props.calendar, posData)}
+              onMouseLeave={onEventLeave(this.props.calendar, posData)}
+              className={className}>
             {getEventComponent(posData)}
           </td>
         );

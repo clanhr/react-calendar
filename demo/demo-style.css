@@ -70,6 +70,11 @@
   background-color: transparent !important;
 }
 
+/* For event highlight */
+.calendarWrapper table tbody tr td.highlight {
+  background-color: red;
+}
+
 /* For birthdays or holidays */
 .calendarWrapper table tbody tr.eventRow .event .specialDay {
   color: #999999;
