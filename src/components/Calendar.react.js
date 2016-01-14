@@ -16,7 +16,7 @@ module.exports = React.createClass({
                                                                     year={this.props.year}
                                                                     onPreviousMonth={this.props.onPreviousMonth}
                                                                     onNextMonth={this.props.onNextMonth} />}
-        {this.props.weekDaysHeader && <WeekDaysHeader />}
+        {this.props.weekDaysHeader && <WeekDaysHeader data={data} />}
         {_.map(data.weeks, function weekToComponent(week, key) {
           return <Week key={key} data={week} />
         })}
