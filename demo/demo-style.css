@@ -1,0 +1,204 @@
+/* Style for the demo page */
+
+/* Month */
+.monthName {
+  background: #eeeeee;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+.monthName p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Navigate between months */
+.monthName p a {
+  border: none;
+  padding: 0 10px;
+  color: #cccccc;
+}
+
+.monthName p a:hover {
+  color: #36b4c7;
+}
+
+/* Calendar Table */
+.calendarWrapper table {
+  margin: 0 0 -1px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.calendarWrapper table thead tr {
+  border: 1px solid #dddddd;
+}
+
+.calendarWrapper table thead tr th {
+  background-color: #eeeeee !important;
+  border: 1px solid #dddddd !important;
+  width: 14.285714286% !important;
+}
+
+.calendarWrapper table tbody tr td {
+  width: 14.285714286% !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  border-left: 1px solid #dddddd;
+  padding: 0 !important;
+  font-size: 12px;
+}
+
+/* For weekends row*/
+.calendarWrapper table tbody tr td.weekend {
+  background-color: #f4f4f4;
+}
+
+/* For previous or next days month */
+.calendarWrapper table tbody tr td.otherMonth {
+  color: #cccccc;
+}
+
+/* For today */
+.calendarWrapper table tbody tr td .today {
+  font-family: "gotham-rounded-bold", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background-color: transparent !important;
+}
+
+/* For birthdays or holidays */
+.calendarWrapper table tbody tr.eventRow .event .specialDay {
+  color: #999999;
+  padding: 0 5px;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .specialDay p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .eventSpan {
+  padding: 2px;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .eventSpan .content {
+  background-color: #dddddd;
+  cursor: default;
+  margin: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .eventSpan .content p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  position: relative;
+  padding: 2px 11px;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .eventSpan .content p.status {
+  color: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.calendarWrapper table tbody tr.eventRow .event .eventSpan .content p .status {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -ms-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  width: 6px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button.popoverButton {
+  margin: 0;
+  color: #36b4c7;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+
+button.popoverButton:hover, button.popoverButton:focus {
+  outline: none;
+  box-shadow: none;
+  color: #267e8b;
+}
+
+.popover {
+  min-width: 370px;
+  -webkit-box-shadow: 0px 1px 8px -2px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow: 0px 1px 8px -2px rgba(50, 50, 50, 0.25);
+  box-shadow: 0px 1px 8px -2px rgba(50, 50, 50, 0.25);
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.popover .popover-content {
+  padding: 15px 20px;
+  color: #666666;
+}
+
+.popover .popover-content p {
+  white-space: normal !important;
+}
+
+.popover .popover-content p .dateRange {
+  font-size: 13px;
+  color: #999999;
+}
+
+.calendarWrapper table tbody tr.monthDay span {
+  display: block;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.calendarWrapper table.eventsWrapper {
+  border: 1px solid #dddddd !important;
+  table-layout: fixed;
+}
+
+/* Status colors */
+
+.repproved {
+  background-color: #dc6150;
+}
+
+.pendent {
+  background-color: #f7931e;
+}
+
+.approved {
+  background-color: #00bf9d;
+}
+
+.canceled {
+  background-color: #dddddd;
+  color: #999999;
+}
+
+.enjoyed {
+  background-color: #36b4c7;
+}
