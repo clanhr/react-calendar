@@ -4,22 +4,45 @@
     <meta charset="utf-8">
     <title>react-calendar Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/jquery-ui/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/jquery-ui/jquery-ui.structure.min.css">
-    <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.structure.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/font-icon/animation.css">
     <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/font-icon/icon-set-codes.css">
     <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/font-icon/icon-set-embedded.css">
     <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/font-icon/icon-set.css">
-    <link rel="stylesheet" href="http://app.staging.clanhr.com/dist/application.css">
+    <link rel="stylesheet" href="demo-style.css">
 
   </head>
   <body>
+    <!-- Begin page content -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h1 class="page-header">React Calendar</h1>
+          <div id="react-calendar"></div>
+          </div>
+        </div><!-- /.col-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
 
-    <div id="react-calendar"></div>
     <script src="../dist/react-calendar-demo.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script>
+    $(function(){
+      $("[data-toggle=popover]").popover({
+          html : true,
+      });
+    });
+    </script>
+
   </body>
 </html>
