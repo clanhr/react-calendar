@@ -35,7 +35,7 @@ var rawData = {
 
       eventRows: [
         {"0" : {size: 1, label: "Pedro Nogueira", type: "specialDay", category: "birthday"},
-         "1" : {size: 1, label: "Feriado", type: "specialDay", category: "calendar"},
+         "1" : {size: 1, label: "Feriado", type: "specialDay", category: "holiday"},
          "2" : {size: 1, label: "Liliana Veríssimo", type: "vacations", status: "enjoyed"}},
         {"0" : {size: 5, label: "Marcos Lamúria", type: "vacations", status: "enjoyed"}},
         {"1" : {size: 4, viewer: true, label: "Eu", type: "vacations", status: "pendent"}},
@@ -96,6 +96,9 @@ var rawData = {
 
 render(
   <Calendar weekDaysHeader={true}
+            monthNavigationHeader={true}
+            month={0}
+            year={2016}
             rawData={rawData}/>,
   document.getElementById("react-calendar")
 );
