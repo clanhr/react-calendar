@@ -14,7 +14,7 @@ module.exports = React.createClass({
           <tbody>
             <DaysRow data={this.props.data} />
             {_.map(this.props.data.eventRows, function eventRowsToComponent(eventRow, key) {
-              return <EventRow key={key} data={component.props.data} eventRow={eventRow} />
+              return <EventRow key={key} data={component.props.data} eventRow={eventRow} calendar={component.props.calendar} />
             })}
           </tbody>
         </table>

@@ -3,16 +3,7 @@
 var React = require('react');
 var _ = require('underscore');
 var moment = require('moment');
-
-function getDayClassName(day) {
-  var isoWeekday = day.isoWeekday();
-  var weekend = isoWeekday === 6 || isoWeekday === 7;
-  var className = null;
-  if(weekend) {
-    className = "weekend";
-  }
-  return className;
-}
+var RenderUtils = require('./RenderUtils.js');
 
 module.exports = React.createClass({
   render: function render() {
@@ -21,10 +12,16 @@ module.exports = React.createClass({
     return (
       <tr className="monthDay">
         {_.map(days, function daysToComponent(day, key) {
-          var className = getDayClassName(day);
+          var className = RenderUtils.getDayClassName(day);
+          var isToday = moment().isSame(day, 'day');
+          var spanClassName = null;
+          if(isToday) {
+            spanClassName = "today";
+          }
+
           return (
             <td key={key} className={className}>
-              <span>{day.date()}</span>
+              <span className={spanClassName}>{day.date()}</span>
             </td>
           );
         })}

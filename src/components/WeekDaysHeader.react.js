@@ -2,20 +2,19 @@
 'use strict';
 
 var React = require('react');
+var _ = require('underscore');
+var moment = require('moment');
 
 module.exports = React.createClass({
   render: function render() {
+    var days = this.props.data.weeks[0].days;
     return (
       <table className="table weekDays">
         <thead>
           <tr>
-            <th className="text-center">Seg</th>
-            <th className="text-center">Ter</th>
-            <th className="text-center">Qua</th>
-            <th className="text-center">Qui</th>
-            <th className="text-center">Sex</th>
-            <th className="text-center">Sab</th>
-            <th className="text-center">Dom</th>
+            {_.map(days, function dayToComponent(day, key) {
+              return <th key={key} className="text-center">{day.format("ddd")}</th>;
+            })}
           </tr>
         </thead>
       </table>
