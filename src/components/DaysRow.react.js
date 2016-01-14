@@ -13,9 +13,15 @@ module.exports = React.createClass({
       <tr className="monthDay">
         {_.map(days, function daysToComponent(day, key) {
           var className = RenderUtils.getDayClassName(day);
+          var isToday = moment().isSame(day, 'day');
+          var spanClassName = null;
+          if(isToday) {
+            spanClassName = "today";
+          }
+
           return (
             <td key={key} className={className}>
-              <span>{day.date()}</span>
+              <span className={spanClassName}>{day.date()}</span>
             </td>
           );
         })}
