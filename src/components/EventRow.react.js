@@ -11,7 +11,7 @@ var RenderUtils = require('./RenderUtils.js');
 function getEventComponent(data) {
   if(data.type === "specialDay") {
     return <SpecialDay data={data} />
-  } else if(data.type === "summay") {
+  } else if(data.type === "summary") {
     return <Summary data={data} />
   } else {
   }

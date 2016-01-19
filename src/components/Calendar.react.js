@@ -6,6 +6,7 @@ var _ = require('underscore');
 var WeekDaysHeader = require('./WeekDaysHeader.react.js');
 var Week = require('./Week.react.js');
 var MonthNavigationHeader = require('./MonthNavigationHeader.react.js');
+var DataBuilder = require('../../src/dataBuilder.js');
 
 module.exports = React.createClass({
 
@@ -18,7 +19,10 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    var data = this.props.rawData;
+    var data = DataBuilder.build(this.props.month,
+                                 this.props.year,
+                                 this.props.data);
+
     var component = this;
     return (
       <div className="calendarWrapper">
