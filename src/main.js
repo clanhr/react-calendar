@@ -1,3 +1,6 @@
 'use strict';
 
-module.exports = require("./components/Calendar.react.js");
+module.exports = {
+  Calendar: require("./components/Calendar.react.js"),
+  DataBuilder: require("./src/dataBuilter.react.js")
+};
