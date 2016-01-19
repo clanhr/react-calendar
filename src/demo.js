@@ -5,6 +5,25 @@ var React = require('react');
 var render = require('react-dom').render;
 var Calendar = require('./main.js');
 
+var data = [{eventId: 1,
+             startDate: "2016-01-26",
+             endDate: "2016-01-27",
+             label: "summary test",
+             type: "vacations",
+             status: "approved"},
+            {eventId: 2,
+             startDate: "2016-01-01",
+             endDate: "2016-01-10",
+             label: "summary bubu",
+             type: "vacations",
+             status: "pendent"},
+            {eventId: 3,
+             startDate: "2016-01-04",
+             endDate: "2016-01-06",
+             label: "summary example",
+             type: "vacations",
+             status: "pendent"}];
+
 var rawData = {
   weeks: [
     {
@@ -55,7 +74,7 @@ var rawData = {
          "2" : {size: 1, label: "Liliana Veríssimo", type: "vacations", status: "enjoyed"}},
         {"0" : {size: 5, label: "Marcos Lamúria", type: "vacations", status: "enjoyed"}},
         {"1" : {size: 4, viewer: true, label: "Eu", type: "vacations", status: "pendent"}},
-        {"2" : {size: 1, label: "+1", type: "summay", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"},
+        {"2" : {size: 1, label: "+1", type: "summary", events: [{label: "Rui Alves", type: "vacations", status: "pendent", detail: "(13/01/2015 a 18/01/2015)"},
                                                                {label: "Pedro Aníbal", type: "vacations", status: "enjoyed", detail: "(13/01/2015 a 18/01/2015)"}]}}
       ]
     },
@@ -100,6 +119,6 @@ render(
             monthNavigationHeader={true}
             month={0}
             year={2016}
-            rawData={rawData}/>,
+            data={data}/>,
   document.getElementById("react-calendar")
 );

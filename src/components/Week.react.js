@@ -8,6 +8,7 @@ var EventRow = require('./EventRow.react.js');
 module.exports = React.createClass({
   render: function render() {
     var component = this;
+
     return (
       <div className="week">
         <table className="table eventsWrapper">
