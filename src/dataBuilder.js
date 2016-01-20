@@ -110,17 +110,16 @@ module.exports = {
 
   isOverlappingRight: function isOverlappingRight(weekStartDate, weekEndDate,
                                         eventStartDate, eventEndDate){
-    return (weekStartDate.isBefore(eventStartDate) ||
-            weekStartDate.isSame(eventStartDate)) &&
-           weekEndDate.isBefore(eventEndDate) &&
-           eventStartDate.isBefore(weekEndDate);
+    return (weekStartDate.isBefore(eventStartDate) || weekStartDate.isSame(eventStartDate))
+         && weekEndDate.isBefore(eventEndDate)
+        && (weekEndDate.isSame(eventStartDate) || eventStartDate.isBefore(weekEndDate));
   },
 
   isOverlappingLeft: function isOverlappingRigth(weekStartDate, weekEndDate,
                                         eventStartDate, eventEndDate){
-    return weekStartDate.isAfter(eventStartDate) &&
-           (weekEndDate.isAfter(eventEndDate) || weekEndDate.isSame(eventEndDate)) &&
-           eventEndDate.isAfter(weekStartDate);
+    return weekStartDate.isAfter(eventStartDate)
+       && (weekEndDate.isAfter(eventEndDate) || weekEndDate.isSame(eventEndDate))
+       && (eventEndDate.isAfter(weekStartDate) || eventEndDate.isSame(weekStartDate));
   },
 
   containsWeek: function containsWeek(weekStartDate, weekEndDate,

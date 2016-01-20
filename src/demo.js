@@ -3,7 +3,7 @@
 var moment = require('moment');
 var React = require('react');
 var render = require('react-dom').render;
-var Calendar = require('./main.js');
+var Calendar = require('./main.js').Calendar;
 
 var data = [{eventId: 1,
              startDate: "2016-01-26",
@@ -22,7 +22,13 @@ var data = [{eventId: 1,
              endDate: "2016-01-06",
              label: "summary example",
              type: "vacations",
-             status: "pendent"}];
+             status: "pendent"},
+            {eventId: 4,
+             startDate: "2016-04-17",
+             endDate: "2016-05-08",
+             label: "summary hey hey",
+             type: "vacations",
+             status: "enjoyed"}];
 
 var rawData = {
   weeks: [
@@ -117,7 +123,7 @@ var rawData = {
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
-            month={0}
+            month={3}
             year={2016}
             data={data}/>,
   document.getElementById("react-calendar")
