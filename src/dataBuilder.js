@@ -191,7 +191,6 @@ module.exports = {
     return firstDayOfMonth.subtract(weekDay, 'day');
   },
 
-
   calcEndMonth: function(month, year) {
     var lastDayOfMonth =  moment().month(month)
                                   .year(year)
