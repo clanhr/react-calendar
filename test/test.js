@@ -61,6 +61,22 @@ describe('event position', function() {
                                               moment("2016-01-17"),
                                               moment("2016-01-25")));
   });
+
+  it('should be 0', function () {
+    assert.equal(0,
+                 dataBuilder.getEventPosition(moment("2016-04-11"),
+                                              moment("2016-04-17"),
+                                              moment("2016-04-07"),
+                                              moment("2016-04-11")));
+  });
+
+  it('should be 6', function () {
+    assert.equal(6,
+                 dataBuilder.getEventPosition(moment("2016-04-11"),
+                                              moment("2016-04-17"),
+                                              moment("2016-04-17"),
+                                              moment("2016-05-08")));
+  });
 });
 
 describe('inside week', function() {
