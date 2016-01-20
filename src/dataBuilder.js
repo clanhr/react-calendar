@@ -31,7 +31,7 @@ module.exports = {
         eventRows: getEventRows.call(_this,
                                      moment(weekStartDate),
                                      moment(weekEndDate),
-                                     data)
+                                     filteredData)
       }
     })};
   },

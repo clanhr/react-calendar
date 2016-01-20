@@ -8,7 +8,7 @@ var Calendar = require('./main.js').Calendar;
 var data = [{eventId: 1,
              startDate: "2016-01-26",
              endDate: "2016-01-27",
-             label: "summary test",
+             label: "summary test bubu",
              type: "vacations",
              status: "approved"},
             {eventId: 2,
@@ -123,7 +123,7 @@ var rawData = {
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
-            month={3}
+            month={0}
             year={2016}
             data={data}/>,
   document.getElementById("react-calendar")
