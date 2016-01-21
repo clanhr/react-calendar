@@ -1,6 +1,6 @@
 {
   "name": "clanhr-react-calendar",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "Simple react calendar",
   "main": "src/main.js",
   "scripts": {

@@ -281,3 +281,46 @@ describe('data builder', function() {
     });
   });
 });
+
+describe("get event rows", function(){
+  var data = [{eventId: 1,
+               startDate: "2016-01-26",
+               endDate: "2016-01-27",
+               label: "summary test",
+               type: "vacations",
+               status: "approved"},
+              {eventId: 2,
+               startDate: "2016-01-29",
+               endDate: "2016-01-30",
+               label: "summary bubu",
+               type: "vacations",
+               status: "approved"}];
+
+  var result = dataBuilder.getEventRows("2016-01-25", "2016-01-31", data);
+  it('first event should', function () {
+    assert.equal(1, result[0][1].eventId);
+  });
+  it('second event should', function () {
+    assert.equal(2, result[0][4].eventId);
+  });
+});
+
+
+describe("can process", function(){
+  var processed = [{eventId: 1,
+                    startDate: "2016-01-26",
+                    endDate: "2016-01-27",
+                    label: "summary test",
+                    type: "vacations",
+                    status: "approved"}];
+
+  it('should return false to overlapping case', function () {
+    assert.equal(false, dataBuilder.canProcess(processed,
+                                     {eventId: 2,
+                                      startDate: "2016-01-27",
+                                      endDate: "2016-01-30",
+                                      label: "ahahahahahah",
+                                      type: "vacations",
+                                      status: "approved"}));
+  });
+});

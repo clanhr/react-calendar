@@ -36,27 +36,57 @@ module.exports = {
     })};
   },
 
-  fillWithMinimum: function fillWithMinimum(eventRows){
-    var eventRowsLength = eventRows.length;
-    if(eventRowsLength < 4){
-      var diff = 4 - eventRowsLength;
-      _.map(_.range(diff), function(){
-        eventRows.push({});
-      });
-    }
+  canProcess: function canProcess(processed, event){
 
-    return eventRows;
+    var isOverlapping = this.isOverlapping,
+        _this = this,
+        process = true;
+    _.each(processed, function(processedEvent){
+      if(isOverlapping.call(_this, moment(processedEvent.startDate),
+                                   moment(processedEvent.endDate),
+                                   moment(event.startDate),
+                                   moment(event.endDate)))
+        process = false;
+    });
+
+    return process;
   },
 
   getEventRows: function getEventRows(weekStartDate, weekEndDate, data){
     var eventRowBuilder = this.eventRowBuilder,
+        canProcess = this.canProcess,
         _this = this;
-    return _this.fillWithMinimum(_.map(data, function(eventRow){
-        return eventRowBuilder.call(_this,
-                                    moment(weekStartDate),
-                                    moment(weekEndDate),
-                                    eventRow);
-    }));
+
+    return _.map(_.range(4), function(){
+      var row = {},
+          processed = [];
+      _.each(data, function(event){
+        if(canProcess.call(_this, processed, event)){
+          eventRowBuilder.call(_this,
+                               moment(weekStartDate),
+                               moment(weekEndDate),
+                               event,
+                               row);
+          processed.push(event);
+          data = _.without(data, event);
+        }
+      });
+
+      return row;
+    });
+  },
+
+  eventRowBuilder: function eventRowBuilder(weekStartDate, weekEndDate, event, row) {
+    var position = this.getEventPosition(moment(weekStartDate),
+                                         moment(weekEndDate),
+                                         moment(event.startDate),
+                                         moment(event.endDate));
+    var eventRow = this.eventBuilder(weekStartDate, weekEndDate, event);
+
+    var hash = {};
+    row[position] = eventRow;
+
+    return row;
   },
 
   getEventPosition: function getEventPosition(weekStartDate, weekEndDate,
@@ -77,19 +107,6 @@ module.exports = {
     if(this.containsWeek(weekStartDate, weekEndDate,
                               eventStartDate, eventEndDate))
       return 0;
-  },
-
-  eventRowBuilder: function eventRowBuilder(weekStartDate, weekEndDate, eventRow) {
-    var position = this.getEventPosition(moment(weekStartDate),
-                                         moment(weekEndDate),
-                                         moment(eventRow.startDate),
-                                         moment(eventRow.endDate));
-    var eventRow = this.eventBuilder(weekStartDate, weekEndDate, eventRow);
-
-    var hash = {};
-    hash[position] = eventRow;
-
-    return hash;
   },
 
   isOverlapping: function isOverlapping(weekStartDate, weekEndDate,
