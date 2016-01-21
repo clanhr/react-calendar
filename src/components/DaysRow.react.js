@@ -9,6 +9,7 @@ module.exports = React.createClass({
   render: function render() {
     var data = this.props.data;
     var days = data.days;
+    var component = this;
     return (
       <tr className="monthDay">
         {_.map(days, function daysToComponent(day, key) {
@@ -17,6 +18,9 @@ module.exports = React.createClass({
           var spanClassName = null;
           if(isToday) {
             spanClassName = "today";
+          }
+          if(day.month() !== component.props.calendar.props.month) {
+            className += " otherMonth";
           }
 
           return (

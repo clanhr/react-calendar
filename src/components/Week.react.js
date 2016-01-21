@@ -13,7 +13,7 @@ module.exports = React.createClass({
       <div className="week">
         <table className="table eventsWrapper">
           <tbody>
-            <DaysRow data={this.props.data} />
+            <DaysRow calendar={this.props.calendar} data={this.props.data} />
             {_.map(this.props.data.eventRows, function eventRowsToComponent(eventRow, key) {
               return <EventRow key={key} data={component.props.data} eventRow={eventRow} calendar={component.props.calendar} />
             })}
