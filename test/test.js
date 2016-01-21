@@ -304,3 +304,23 @@ describe("get event rows", function(){
     assert.equal(2, result[0][4].eventId);
   });
 });
+
+
+describe("can process", function(){
+  var processed = [{eventId: 1,
+                    startDate: "2016-01-26",
+                    endDate: "2016-01-27",
+                    label: "summary test",
+                    type: "vacations",
+                    status: "approved"}];
+
+  it('should return false to overlapping case', function () {
+    assert.equal(false, dataBuilder.canProcess(processed,
+                                     {eventId: 2,
+                                      startDate: "2016-01-27",
+                                      endDate: "2016-01-30",
+                                      label: "ahahahahahah",
+                                      type: "vacations",
+                                      status: "approved"}));
+  });
+});

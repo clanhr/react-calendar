@@ -36,50 +36,40 @@ module.exports = {
     })};
   },
 
-  fillWithMinimum: function fillWithMinimum(eventRows){
-    var eventRowsLength = eventRows.length;
-    if(eventRowsLength < 4){
-      var diff = 4 - eventRowsLength;
-      _.map(_.range(diff), function(){
-        eventRows.push({});
-      });
-    }
+  canProcess: function canProcess(processed, event){
 
-    return eventRows;
+    var isOverlapping = this.isOverlapping,
+        _this = this,
+        process = true;
+    _.each(processed, function(processedEvent){
+      if(isOverlapping.call(_this, moment(processedEvent.startDate),
+                                   moment(processedEvent.endDate),
+                                   moment(event.startDate),
+                                   moment(event.endDate)))
+        process = false;
+    });
+
+    return process;
   },
 
   getEventRows: function getEventRows(weekStartDate, weekEndDate, data){
     var eventRowBuilder = this.eventRowBuilder,
-        getEventPosition = this.getEventPosition,
-        _this = this,
-        row = {};
-
-    /*
-    Input: [{event}{event}]
-
-    Output: [{a: 123,
-              b: 456},
-             {c: 789},
-             {},
-             {}]
-    */
-
-   /*
-    data = _.sortBy(data, function(evt){
-      return getEventPosition(_this, weekStartDate, weekEndDate,
-                              evt["start-date"], evt["end-date"]);
-    });
-    */
+        canProcess = this.canProcess,
+        _this = this;
 
     return _.map(_.range(4), function(){
-      var row = {};
-      _.map(data, function(event){
-        eventRowBuilder.call(_this,
-                             moment(weekStartDate),
-                             moment(weekEndDate),
-                             event,
-                             row);
-        data = _.without(data, event);
+      var row = {},
+          processed = [];
+      _.each(data, function(event){
+        if(canProcess.call(_this, processed, event)){
+          eventRowBuilder.call(_this,
+                               moment(weekStartDate),
+                               moment(weekEndDate),
+                               event,
+                               row);
+          processed.push(event);
+          data = _.without(data, event);
+        }
       });
 
       return row;
