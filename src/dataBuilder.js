@@ -50,13 +50,53 @@ module.exports = {
 
   getEventRows: function getEventRows(weekStartDate, weekEndDate, data){
     var eventRowBuilder = this.eventRowBuilder,
-        _this = this;
-    return _this.fillWithMinimum(_.map(data, function(eventRow){
-        return eventRowBuilder.call(_this,
-                                    moment(weekStartDate),
-                                    moment(weekEndDate),
-                                    eventRow);
-    }));
+        getEventPosition = this.getEventPosition,
+        _this = this,
+        row = {};
+
+    /*
+    Input: [{event}{event}]
+
+    Output: [{a: 123,
+              b: 456},
+             {c: 789},
+             {},
+             {}]
+    */
+
+   /*
+    data = _.sortBy(data, function(evt){
+      return getEventPosition(_this, weekStartDate, weekEndDate,
+                              evt["start-date"], evt["end-date"]);
+    });
+    */
+
+    return _.map(_.range(4), function(){
+      var row = {};
+      _.map(data, function(event){
+        eventRowBuilder.call(_this,
+                             moment(weekStartDate),
+                             moment(weekEndDate),
+                             event,
+                             row);
+        data = _.without(data, event);
+      });
+
+      return row;
+    });
+  },
+
+  eventRowBuilder: function eventRowBuilder(weekStartDate, weekEndDate, event, row) {
+    var position = this.getEventPosition(moment(weekStartDate),
+                                         moment(weekEndDate),
+                                         moment(event.startDate),
+                                         moment(event.endDate));
+    var eventRow = this.eventBuilder(weekStartDate, weekEndDate, event);
+
+    var hash = {};
+    row[position] = eventRow;
+
+    return row;
   },
 
   getEventPosition: function getEventPosition(weekStartDate, weekEndDate,
@@ -77,19 +117,6 @@ module.exports = {
     if(this.containsWeek(weekStartDate, weekEndDate,
                               eventStartDate, eventEndDate))
       return 0;
-  },
-
-  eventRowBuilder: function eventRowBuilder(weekStartDate, weekEndDate, eventRow) {
-    var position = this.getEventPosition(moment(weekStartDate),
-                                         moment(weekEndDate),
-                                         moment(eventRow.startDate),
-                                         moment(eventRow.endDate));
-    var eventRow = this.eventBuilder(weekStartDate, weekEndDate, eventRow);
-
-    var hash = {};
-    hash[position] = eventRow;
-
-    return hash;
   },
 
   isOverlapping: function isOverlapping(weekStartDate, weekEndDate,
