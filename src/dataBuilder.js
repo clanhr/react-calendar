@@ -170,6 +170,7 @@ module.exports = {
     var eventEndDate = moment(event.endDate);
 
     return {eventId: event.eventId,
+            viewer: event.viewer,
             size: this.getEventSize(weekStartDate, weekEndDate,
                                     eventStartDate, eventEndDate),
             label: event.label,

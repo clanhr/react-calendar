@@ -6,6 +6,7 @@ var render = require('react-dom').render;
 var Calendar = require('./main.js').Calendar;
 
 var data = [{eventId: 1,
+             viewer: true,
              startDate: "2016-01-26",
              endDate: "2016-01-28",
              label: "summary test bubu",
