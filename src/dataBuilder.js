@@ -175,6 +175,7 @@ module.exports = {
                                     eventStartDate, eventEndDate),
             label: event.label,
             type: event.type,
+            event: event,
             status: event.status}
   },
 
