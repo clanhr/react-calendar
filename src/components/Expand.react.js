@@ -8,8 +8,9 @@ module.exports = React.createClass({
     var shouldExpand = this.props.shouldExpand;
     var expandLabel = this.props.expandLabel;
 
-    if(!shouldExpand)
+    if(!shouldExpand){
       return <tr/>;
+    }
 
     return (
       <tr className="expandEvents">
