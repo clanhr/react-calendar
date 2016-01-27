@@ -18,6 +18,15 @@ function getEventComponent(data) {
   return <Event data={data} />;
 }
 
+function onEventClick(calendar, data) {
+  if(calendar.props.onEventClick) {
+    return function() {
+      calendar.props.onEventClick(data.event);
+    }
+  }
+  return null;
+}
+
 function onEventEnter(calendar, data) {
   return function() {
     calendar.setState({overEvent:data});
@@ -68,6 +77,7 @@ module.exports = React.createClass({
           <td key={i} colSpan={posData.size}
               onMouseEnter={onEventEnter(this.props.calendar, posData)}
               onMouseLeave={onEventLeave(this.props.calendar, posData)}
+              onClick={onEventClick(this.props.calendar, posData)}
               className={className}>
             {getEventComponent(posData)}
           </td>

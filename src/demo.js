@@ -13,26 +13,26 @@ var data = [{eventId: 1,
              type: "vacations",
              status: "approved"},
             {eventId: 2,
-             startDate: "2016-01-01",
-             endDate: "2016-01-10",
+             startDate: "2016-01-27",
+             endDate: "2016-01-31",
              label: "summary bubu",
              type: "vacations",
              status: "pendent"},
             {eventId: 3,
-             startDate: "2016-01-27",
-             endDate: "2016-01-30",
+             startDate: "2016-01-26",
+             endDate: "2016-01-26",
              label: "summary example",
              type: "vacations",
              status: "pendent"},
             {eventId: 7,
-             startDate: "2016-01-30",
-             endDate: "2016-01-31",
+             startDate: "2016-01-27",
+             endDate: "2016-01-28",
              label: "summary example",
              type: "vacations",
              status: "pendent"},
             {eventId: 6,
-             startDate: "2016-01-25",
-             endDate: "2016-01-26",
+             startDate: "2016-01-27",
+             endDate: "2016-01-28",
              label: "summary example",
              type: "vacations",
              status: "pendent"},
@@ -41,13 +41,7 @@ var data = [{eventId: 1,
              endDate: "2016-01-29",
              label: "summary example",
              type: "vacations",
-             status: "pendent"},
-            {eventId: 5,
-             startDate: "2016-04-17",
-             endDate: "2016-05-08",
-             label: "summary hey hey",
-             type: "vacations",
-             status: "enjoyed"}];
+             status: "pendent"}];
 
 var rawData = {
   weeks: [
@@ -139,9 +133,14 @@ var rawData = {
   ],
 };
 
+function eventClicked(entry) {
+  alert(JSON.stringify(entry));
+}
+
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
+            onEventClick={eventClicked}
             month={0}
             year={2016}
             data={data}/>,
