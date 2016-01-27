@@ -20,8 +20,8 @@ function getEventComponent(data) {
 
 function onEventClick(calendar, data) {
   if(calendar.props.onEventClick) {
-    return function() {
-      calendar.props.onEventClick(data.event);
+    return function(browserEvent) {
+      calendar.props.onEventClick(data.event, browserEvent);
     }
   }
   return null;
