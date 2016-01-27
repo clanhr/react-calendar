@@ -26,14 +26,17 @@ module.exports = React.createClass({
     var component = this;
     return (
       <div className="calendarWrapper">
-        {this.props.monthNavigationHeader && <MonthNavigationHeader month={this.props.month}
-                                                                    year={this.props.year}
-                                                                    onPreviousMonth={this.props.onPreviousMonth}
-                                                                    onNextMonth={this.props.onNextMonth} />}
-        {this.props.weekDaysHeader && <WeekDaysHeader data={data} />}
-        {_.map(data.weeks, function weekToComponent(week, key) {
-          return <Week key={key} data={week} calendar={component} />
-        })}
+        <div className="calendar">
+          {this.props.monthNavigationHeader && <MonthNavigationHeader month={this.props.month}
+                                                                      year={this.props.year}
+                                                                      onPreviousMonth={this.props.onPreviousMonth}
+                                                                      onNextMonth={this.props.onNextMonth} />}
+          {this.props.weekDaysHeader && <WeekDaysHeader data={data} />}
+          {_.map(data.weeks, function weekToComponent(week, key) {
+            return <Week key={key} data={week} calendar={component} />
+          })}
+        </div>
+        <div className="weekendBg"></div>
       </div>
     );
   }
