@@ -17,9 +17,9 @@ module.exports = React.createClass({
 
   expandLabel: function(){
     if(this.state.expand){
-      return this.props.data.collapseLabel || "Collapse";
+      return this.props.data.collapseLabel || "Collapse expanded events";
     }
-    return this.props.data.expandLabel || "Expand";
+    return this.props.data.expandLabel || "Expand week's hidden events";
   },
 
   render: function render() {

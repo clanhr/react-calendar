@@ -12,8 +12,8 @@ module.exports = React.createClass({
       return <div/>;
 
     return (
-      <tr>
-        <td>
+      <tr className="expandEvents">
+        <td colSpan="7">
           <a onClick={this.props.expandCallback}>{expandLabel}</a>
         </td>
       </tr>
