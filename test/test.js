@@ -296,7 +296,7 @@ describe("get event rows", function(){
                type: "vacations",
                status: "approved"}];
 
-  var result = dataBuilder.getEventRows("2016-01-25", "2016-01-31", data);
+  var result = dataBuilder.getEventRows("2016-01-25", "2016-01-31", data).eventRows;
   it('first event should', function () {
     assert.equal(1, result[0][1].eventId);
   });
