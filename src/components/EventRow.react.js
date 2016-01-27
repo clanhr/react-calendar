@@ -21,7 +21,7 @@ function getEventComponent(data) {
 function onEventClick(calendar, data) {
   if(calendar.props.onEventClick) {
     return function(browserEvent) {
-      calendar.props.onEventClick(data.event, browserEvent);
+      calendar.props.onEventClick(browserEvent, data.event);
     }
   }
   return null;

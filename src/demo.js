@@ -133,7 +133,7 @@ var rawData = {
   ],
 };
 
-function eventClicked(entry) {
+function eventClicked(browserEvent, entry) {
   alert(JSON.stringify(entry));
 }
 
