@@ -9,7 +9,7 @@ module.exports = React.createClass({
     var expandLabel = this.props.expandLabel;
 
     if(!shouldExpand)
-      return <div/>;
+      return <tr/>;
 
     return (
       <tr className="expandEvents">
