@@ -133,6 +133,10 @@ var rawData = {
   ],
 };
 
+var config = {expandLabel: "Expand",
+              collapseLabel: "Collapse",
+              numberOfRowsToShow: 4};
+
 function eventClicked(browserEvent, entry) {
   alert(JSON.stringify(entry));
 }
@@ -143,6 +147,7 @@ render(
             onEventClick={eventClicked}
             month={0}
             year={2016}
-            data={data}/>,
+            data={data}
+            config={config}/>,
   document.getElementById("react-calendar")
 );

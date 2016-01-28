@@ -21,7 +21,8 @@ module.exports = React.createClass({
   render: function render() {
     var data = DataBuilder.build(this.props.month,
                                  this.props.year,
-                                 this.props.data);
+                                 this.props.data,
+                                 this.props.config);
 
     var component = this;
     return (
