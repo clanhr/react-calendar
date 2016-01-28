@@ -212,8 +212,9 @@ function fillWithMinimum(eventRow){
 function build(month, year, data, config) {
 
   var weeks = this.weekRanges(month, year);
-  var numberOfRowsToShow = (config && config.numberOfRowsToShow) ? 
-                            config.numberOfRowsToShow : 4;
+  config = config ? config : {};
+  var numberOfRowsToShow = config.numberOfRowsToShow ?
+                           config.numberOfRowsToShow : 4;
 
   return { weeks: _.map(weeks, function(daysOfWeek){
     var weekStartDate = daysOfWeek[0],
@@ -229,6 +230,8 @@ function build(month, year, data, config) {
                             moment(weekEndDate),
                             filteredData);
     return {
+      collapseLabel: config.collapseLabel,
+      expandLabel: config.expandLabel,
       days: daysOfWeek,
       numberOfRowsToShow: numberOfRowsToShow,
       shouldExpand: rows.shouldExpand,
