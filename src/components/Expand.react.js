@@ -15,7 +15,7 @@ module.exports = React.createClass({
     return (
       <tr className="expandEvents">
         <td colSpan="7">
-          <a onClick={this.props.expandCallback}>{expandLabel}</a>
+          <a onClick={this.props.expandCallback}><span className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> {expandLabel}</a>
         </td>
       </tr>
     );
