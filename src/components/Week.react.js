@@ -31,15 +31,21 @@ module.exports = React.createClass({
     var eventRowsToShow = _.map(eventRows, function eventRowsToComponent(eventRow, key) {
               return <EventRow key={key} data={component.props.data} eventRow={eventRow} calendar={component.props.calendar} />
             });
+
+    var expand;
+
+    if(this.props.data.shouldExpand){
+      expand = <Expand shouldExpand={this.props.data.shouldExpand}
+                       expandLabel={this.expandLabel()}
+                       expandCallback={this.expandCallback}/>
+    }
     return (
       <div className="week">
         <table className="table eventsWrapper">
           <tbody>
             <DaysRow calendar={this.props.calendar} data={this.props.data}/>
             {eventRowsToShow}
-            <Expand shouldExpand={this.props.data.shouldExpand}
-                    expandLabel={this.expandLabel()}
-                    expandCallback={this.expandCallback}/>
+            {expand}
           </tbody>
         </table>
       </div>
