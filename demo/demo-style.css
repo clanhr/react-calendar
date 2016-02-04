@@ -198,7 +198,7 @@ tr.expandEvents td a{
   padding: 5px !important;
   float: left;
   color: #666666;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 tr.expandEvents td a:hover{
