@@ -119,6 +119,7 @@ function eventBuilder(weekStartDate, weekEndDate, event) {
           size: getEventSize(weekStartDate, weekEndDate, eventStartDate, eventEndDate),
           label: event.label,
           type: event.type,
+          category: event.category,
           event: event,
           status: event.status}
 }

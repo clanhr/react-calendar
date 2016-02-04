@@ -41,7 +41,13 @@ var data = [{eventId: 1,
              endDate: "2016-01-29",
              label: "summary example",
              type: "vacations",
-             status: "pendent"}];
+             status: "pendent"},
+            {eventId: 5,
+             startDate: "2016-01-01",
+             endDate: "2016-01-01",
+             label: "New Year",
+             type: "specialDay",
+             category: "calendar"}];
 
 var rawData = {
   weeks: [
