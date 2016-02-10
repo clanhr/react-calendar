@@ -13,7 +13,7 @@ module.exports = React.createClass({
     return (
       <tr className="monthDay">
         {_.map(days, function daysToComponent(day, key) {
-          var className = RenderUtils.getDayClassName(day);
+          var className = RenderUtils.getDayClassName(day, component.props.calendar) || "";
           var isToday = moment().isSame(day, 'day');
           var spanClassName = null;
           if(isToday) {

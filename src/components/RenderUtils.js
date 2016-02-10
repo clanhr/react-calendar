@@ -7,7 +7,14 @@ module.exports = {
     return weekend;
   },
 
-  getDayClassName: function getDayClassName(day) {
+  getDayClassName: function getDayClassName(day, calendar) {
+    if(calendar && calendar.props.dayInfo) {
+      var info = calendar.props.dayInfo(day);
+      if(info) {
+        return info.classes;
+      }
+    }
+
     var className = null;
     if(this.isWeekend(day)) {
       className = "weekend";
