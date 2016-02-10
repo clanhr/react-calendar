@@ -61,7 +61,7 @@ module.exports = React.createClass({
     var components = [];
     for(var i = 0; i < nDays; ++i) {
       var posData = events[i.toString()];
-      var weekendClassName = RenderUtils.getDayClassName(days[i]);
+      var weekendClassName = RenderUtils.getDayClassName(days[i], this.props.calendar);
       if(posData) {
         var className = "event";
         if(posData.type === "summary") {

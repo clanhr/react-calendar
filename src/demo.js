@@ -147,12 +147,19 @@ function eventClicked(browserEvent, entry) {
   alert(JSON.stringify(entry));
 }
 
+function dayInfo(day) {
+  if(day.isoWeekday() == 6 || day.isoWeekday() == 7) {
+    return {classes:"dayOff"};
+  }
+}
+
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
             onEventClick={eventClicked}
             month={0}
             year={2016}
+            dayInfo={dayInfo}
             data={data}
             config={config}/>,
   document.getElementById("react-calendar")
