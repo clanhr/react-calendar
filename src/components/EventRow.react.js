@@ -67,8 +67,8 @@ module.exports = React.createClass({
         }
 
         var detail = null;
-        if(posData.type !== "specialDay" && this.props.calendar.props.onEventClick){
-          detail = <EventDetail detail={this.props.calendar.props.onEventClick}
+        if(posData.type !== "specialDay" && this.props.calendar.props.eventDetail){
+          detail = <EventDetail detail={this.props.calendar.props.eventDetail}
                                 event={posData.event}/>
         }
 
