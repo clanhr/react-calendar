@@ -75,6 +75,7 @@ module.exports = React.createClass({
         components.push(
           <td key={i} colSpan={posData.size}
               data-toggle="modal-popover"
+              data-modal-position="relative"
               data-placement="top"
               data-target={'#modal'+posData.eventId}
               onMouseEnter={onEventEnter(this.props.calendar, posData)}
