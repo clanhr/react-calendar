@@ -1,6 +1,6 @@
 {
   "name": "clanhr-react-calendar",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "description": "Simple react calendar",
   "main": "src/main.js",
   "scripts": {
@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/clanhr/react-calendar",
   "dependencies": {
-    "underscore": "*",
     "moment": "*",
     "react": "0.14.1",
-    "react-dom": "0.14.1"
+    "react-dom": "0.14.1",
+    "underscore": "*"
   },
   "devDependencies": {
     "mocha": "^2.3.4",

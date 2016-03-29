@@ -7,8 +7,8 @@ var Calendar = require('./main.js').Calendar;
 
 var data = [{eventId: 1,
              viewer: true,
-             startDate: "2016-01-26",
-             endDate: "2016-01-28",
+             startDate: "2016-01-19",
+             endDate: "2016-01-21",
              label: "summary test bubu",
              type: "vacations",
              status: "approved"},
@@ -19,8 +19,8 @@ var data = [{eventId: 1,
              type: "vacations",
              status: "pendent"},
             {eventId: 3,
-             startDate: "2016-01-26",
-             endDate: "2016-01-26",
+             startDate: "2016-01-20",
+             endDate: "2016-01-20",
              label: "summary example",
              type: "vacations",
              status: "pendent"},
@@ -153,10 +153,27 @@ function dayInfo(day) {
   }
 }
 
+var DetailComponent = React.createClass({
+
+  render: function render(){
+    var event = this.props.event;
+    return (
+      <div>
+        {event.eventId}
+        {event.label}
+        {event.status}
+        {event.type}
+        {event.startDate}
+        {event.endDate}
+      </div>
+    );
+  }
+});
+
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
-            onEventClick={eventClicked}
+            onEventClick={DetailComponent}
             month={0}
             year={2016}
             dayInfo={dayInfo}

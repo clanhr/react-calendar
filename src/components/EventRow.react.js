@@ -5,6 +5,7 @@ var _ = require('underscore');
 var moment = require('moment');
 var Event = require('./Event.react.js');
 var SpecialDay = require('./SpecialDay.react.js');
+var EventDetail = require('./EventDetail.react.js');
 var Summary = require('./Summary.react.js');
 var RenderUtils = require('./RenderUtils.js');
 
@@ -16,15 +17,6 @@ function getEventComponent(data) {
   } else {
   }
   return <Event data={data} />;
-}
-
-function onEventClick(calendar, data) {
-  if(calendar.props.onEventClick) {
-    return function(browserEvent) {
-      calendar.props.onEventClick(browserEvent, data.event);
-    }
-  }
-  return null;
 }
 
 function onEventEnter(calendar, data) {
@@ -73,13 +65,23 @@ module.exports = React.createClass({
         if(hightlightEvent(this.props.calendar.overEvent(), posData)) {
           className += " highlight";
         }
+
+        var detail = null;
+        if(posData.type !== "specialDay" && this.props.calendar.props.onEventClick){
+          detail = <EventDetail detail={this.props.calendar.props.onEventClick}
+                                event={posData.event}/>
+        }
+
         components.push(
           <td key={i} colSpan={posData.size}
+              data-toggle="modal-popover"
+              data-placement="top"
+              data-target={'#modal'+posData.eventId}
               onMouseEnter={onEventEnter(this.props.calendar, posData)}
               onMouseLeave={onEventLeave(this.props.calendar, posData)}
-              onClick={onEventClick(this.props.calendar, posData)}
               className={className}>
-            {getEventComponent(posData)}
+              {detail}
+              {getEventComponent(posData)}
           </td>
         );
         i += posData.size - 1;
