@@ -173,7 +173,7 @@ var DetailComponent = React.createClass({
 render(
   <Calendar weekDaysHeader={true}
             monthNavigationHeader={true}
-            onEventClick={DetailComponent}
+            eventDetail={DetailComponent}
             month={0}
             year={2016}
             dayInfo={dayInfo}
