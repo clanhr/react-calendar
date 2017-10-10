@@ -1,7 +1,7 @@
 {
-  "name": "clanhr-react-calendar",
+  "name": "clanhr-react-calendar-2",
   "version": "1.14.3",
-  "description": "Simple react calendar",
+  "description": "Simple react calendar with the right dependencies",
   "main": "src/main.js",
   "scripts": {
     "test": "mocha test/*.js"
