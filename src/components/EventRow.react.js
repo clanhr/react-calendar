@@ -4,14 +4,13 @@ var React = require('react');
 var _ = require('underscore');
 var moment = require('moment');
 var Event = require('./Event.react.js');
-var SpecialDay = require('./SpecialDay.react.js');
 var EventDetail = require('./EventDetail.react.js');
 var Summary = require('./Summary.react.js');
 var RenderUtils = require('./RenderUtils.js');
 
 function getEventComponent(data) {
   if(data.type === "specialDay") {
-    return <SpecialDay data={data} />
+    return;
   } else if(data.type === "summary") {
     return <Summary data={data} />
   } else {
@@ -49,12 +48,13 @@ module.exports = React.createClass({
     var days = this.props.data.days;
     var nDays = days.length;
     var events = this.props.eventRow;
-
     var components = [];
+
     for(var i = 0; i < nDays; ++i) {
       var posData = events[i.toString()];
       var weekendClassName = RenderUtils.getDayClassName(days[i], this.props.calendar);
-      if(posData) {
+
+      if(posData && posData.type !== "specialDay") {
         var className = "event";
         if(posData.type === "summary") {
           className += " showMore";
@@ -67,7 +67,7 @@ module.exports = React.createClass({
         }
 
         var detail = null;
-        if(posData.type !== "specialDay" && this.props.calendar.props.eventDetail){
+        if(this.props.calendar.props.eventDetail){
           detail = <EventDetail detail={this.props.calendar.props.eventDetail}
                                 event={posData.event}/>
         }
