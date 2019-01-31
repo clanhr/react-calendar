@@ -176,9 +176,38 @@
   left: 0;
 }
 
+.calendarWrapper .calendar table tbody tr.monthDay td .specialDayWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.calendarWrapper .calendar table tbody tr.monthDay td .specialDayWrapper .specialDay {
+  cursor: pointer;
+}
+
+.calendarWrapper .calendar table tbody tr.monthDay td .specialDayWrapper .specialDay p{
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
 .calendarWrapper .calendar table tbody tr.monthDay span {
   display: block;
   padding: 5px;
+  font-size: 14px;
+}
+
+.calendarWrapper .calendar table tbody tr.monthDay .specialDayWrapper span {
+  display: block;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.calendarWrapper .calendar table tbody tr.monthDay .popover .popover-content span {
+  display: inline-block;
+  padding: 0px;
   font-size: 14px;
 }
 
