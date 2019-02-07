@@ -1,6 +1,6 @@
 {
   "name": "clanhr-react-calendar-2",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "description": "Simple react calendar with the right dependencies",
   "main": "src/main.js",
   "scripts": {
