@@ -40,13 +40,13 @@ module.exports = React.createClass({
     var days = data.days;
     var events = data.eventRows;
     var component = this;
-    var specialDays = specialDays || [];
+    var specialDaysDate = specialDaysDate || [];
     var specialDaysData = [];
 
     _.map(events, function(event){
       _.each(event, function(specialDay){
         if(specialDay.type === 'specialDay'){
-          specialDays.push(specialDay.event.startDate);
+          specialDaysDate.push(specialDay.event.startDate);
           specialDaysData.push(specialDay.event);
         }
       });
@@ -60,8 +60,12 @@ module.exports = React.createClass({
           var isToday = moment().isSame(day, 'day');
           var spanClassName = null;
           var monthDay = moment(day._d).format('YYYY-MM-DD');
-          var specialDay = specialDays.includes(monthDay);
-          var detail = null;
+          var IsSpecialDay = specialDaysDate.includes(monthDay);
+          var specialDay = _.filter(specialDaysData, function(specialDay){
+            if(specialDay.startDate === monthDay){
+              return specialDay;
+            }
+          });
 
           if(isToday) {
             spanClassName = "today";
@@ -70,23 +74,22 @@ module.exports = React.createClass({
             className += " otherMonth";
           }
 
-          if(calendar.props.eventDetail){
-            detail = <EventDetail detail={calendar.props.eventDetail}
-                                  event={specialDaysData[0]}/>
-          }
+          if(IsSpecialDay) {
 
-          if(specialDay) {
+            var detail = <EventDetail detail={calendar.props.eventDetail}
+                 event={specialDay[0]}/>;
+
             return (
               <td key={key} className={className}
                   data-toggle="modal-popover"
                   data-modal-position="relative"
                   data-placement="top"
-                  data-target={'#modal'+specialDaysData[0].eventId}
-                  onMouseEnter={onEventEnter(calendar, specialDaysData[0])}
-                  onMouseLeave={onEventLeave(calendar, specialDaysData[0])}
+                  data-target={'#modal'+specialDay[0].eventId}
+                  onMouseEnter={onEventEnter(calendar, specialDay[0])}
+                  onMouseLeave={onEventLeave(calendar, specialDay[0])}
                   className={className}>
                   {detail}
-                  {getEventComponent(specialDaysData[0], spanClassName, day)}
+                  {getEventComponent(specialDay[0], spanClassName, day)}
               </td>
             );
           }else{
