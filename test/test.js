@@ -305,6 +305,29 @@ describe("get event rows", function(){
   });
 });
 
+describe("get different holiday events on same row", function(){
+  var data = [{eventId: 1,
+               startDate: "2016-01-01",
+               endDate: "2016-01-01",
+               label: "holiday",
+               type: "specialDay",
+               name: "New year"},
+              {eventId: 2,
+               startDate: "2016-01-02",
+               endDate: "2016-01-02",
+               label: "day out",
+               type: "specialDay",
+               name: "Day out"}];
+
+  var result = dataBuilder.getEventRows("2015-12-28", "2016-01-11", data).eventRows;
+  it('should holiday', function () {
+    assert.equal(1, result[0][4].eventId);
+  });
+  it('should day out', function () {
+    assert.equal(2, result[0][5].eventId);
+  });
+});
+
 
 describe("can process", function(){
   var processed = [{eventId: 1,
